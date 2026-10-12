@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO de base -->
+    <title>Jose Preira — Développeur Front-end & Designer graphique | Portfolio</title>
+    <meta name="description" content="Portfolio de Jose Preira, développeur front-end et designer graphique. Découvrez mes projets web, mes compétences en HTML, CSS et JavaScript, et contactez-moi pour vos projets.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://dickarnos.github.io/jp/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Jose Preira — Développeur Front-end & Designer graphique">
+    <meta property="og:description" content="Portfolio de Jose Preira, développeur front-end et designer graphique.">
+    <meta property="og:url" content="https://dickarnos.github.io/jp/">
+    <meta property="og:image" content="https://dickarnos.github.io/jp/profil.jpeg">
+    <meta property="og:locale" content="fr_SN">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Jose Preira — Développeur Front-end & Designer graphique">
+    <meta name="twitter:description" content="Portfolio de Jose Preira, développeur front-end et designer graphique.">
+    <meta name="twitter:image" content="https://dickarnos.github.io/jp/profil.jpeg">
+
+    <!-- Thème mobile -->
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Ressources -->
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <script src="https://kit.fontawesome.com/628547999c.js" crossorigin="anonymous" defer></script>
+
+    <!-- Données structurées Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Jose Preira",
+      "jobTitle": "Développeur Front-end",
+      "url": "https://dickarnos.github.io/jp/",
+      "image": "https://dickarnos.github.io/jp/profil.jpeg",
+      "sameAs": [
+        "https://github.com/dickarnos",
+        "https://www.linkedin.com/in/jose-preira-131787441"
+      ],
+      "knowsAbout": ["HTML", "CSS", "JavaScript", "Design graphique", "Accessibilité web"]
+    }
+    </script>
+    <!-- Préconnexion Google Fonts (performance) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Poppins : uniquement les graisses utilisées -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+    <header class="header">
+        <a href="#about" class="logo" aria-label="Retour à l'accueil">Jose Preira</a>
+
+        <nav aria-label="Navigation principale">
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#experiences">Expériences</a></li>
+                <li><a href="#projects">Projets</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <button
+            id="menu-icon"
+            type="button"
+            class="menu-toggle"
+            aria-label="Ouvrir le menu de navigation"
+            aria-controls="nav-links"
+            aria-expanded="false">
+            <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+
+        <a href="https://github.com/dickarnos"
+           class="visit-btn"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Voir mon profil GitHub (ouvre un nouvel onglet)">
+            Github
+        </a>
+    </header>
+
+    <main id="main-content">
+        <section id="about" class="about" aria-labelledby="about-title">
+            <div class="about-container">
+                <img src="profil.jpeg"
+                     alt="Portrait de Jose Preira, développeur web front-end"
+                     width="400" height="400"
+                     loading="eager"
+                     fetchpriority="high"
+                     decoding="async">
+
+                <div class="info-box">
+                    <div class="text">
+                        <h1 id="about-title">Jose Preira — Développeur Front-end</h1>
+                        <p class="subtitle">Bonjour, je suis Jose Preira</p>
+
+                        <p>
+                            Je conçois des interfaces élégantes et fonctionnelles qui racontent une histoire. Passionné
+                            par l'accessibilité et l'expérience utilisateur.
+                        </p>
+                    </div>
+
+                    <div class="btn-group">
+                        <a href="/cv.pdf" class="btn" target="_blank" rel="noopener noreferrer">
+                            Consulter mon CV
+                            <span class="sr-only">(ouvre un nouvel onglet)</span>
+                        </a>
+                        <a href="#contact" class="btn">Me contacter</a>
+                    </div>
+
+                    <div class="socials">
+                        <a href="https://github.com/zojeoscarpreira-del"
+                           target="_blank"
+                           rel="me noopener noreferrer"
+                           aria-label="Mon profil GitHub (ouvre un nouvel onglet)">
+                            <i class="fa-brands fa-github" aria-hidden="true"></i>
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/jose-preira-131787441"
+                           target="_blank"
+                           rel="me noopener noreferrer"
+                           aria-label="Mon profil LinkedIn (ouvre un nouvel onglet)">
+                            <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experiences" class="experiences" aria-labelledby="experiences-title">
+            <h2 id="experiences-title" class="section-title">Mes compétences</h2>
+
+            <div class="experiences-info">
+                <div class="grid">
+                    <article class="grid-card">
+                        <span>Développement Front-end</span>
+                        <h3>1 an d'expérience</h3>
+                        <p>
+                            Je développe des interfaces web interactives,
+                            responsives et accessibles à l'aide de HTML, CSS
+                            et JavaScript. Mon objectif est de créer des sites
+                            web performants, intuitifs et adaptés aux besoins
+                            des utilisateurs, tout en accordant une attention
+                            particulière aux détails et à la qualité du code.
+                        </p>
+                        <span aria-hidden="true">
+                            <i class="fa-solid fa-code"></i>
+                        </span>
+                    </article>
+
+                    <article class="grid-card">
+                        <span>Design graphique</span>
+                        <h3>2 ans d'expérience</h3>
+                        <p>
+                            Grâce à mon expérience en design graphique,
+                            je crée des visuels modernes, cohérents et attractifs.
+                            Je combine créativité, sens de la composition
+                            et attention aux détails pour concevoir des supports
+                            visuels professionnels qui valorisent l'identité
+                            et le message de chaque projet.
+                        </p>
+                        <span aria-hidden="true">
+                            <i class="fa-solid fa-pen-nib"></i>
+                        </span>
+                    </article>
+                </div>
+
+                <img src="./profil.jpeg"
+                     alt="Jose Preira, développeur front-end et designer graphique"
+                     width="400" height="400"
+                     loading="lazy"
+                     decoding="async">
+            </div>
+        </section>
+
+        <section id="projects" class="projects" aria-labelledby="projects-title">
+            <h2 id="projects-title" class="section-title">Mes projets récents</h2>
+
+            <div class="projects-grid">
+                <article class="projects-card">
+                    <img src="./project1.png"
+                         alt="Aperçu du projet Project PNBC — application web"
+                         width="600" height="400"
+                         loading="lazy"
+                         decoding="async">
+
+                    <h3>Project <abbr title="Popenguine-Ndayane Basket Club">PNBC</abbr> — Application web</h3>
+
+                    <p>
+                        Découvrez une réalisation qui met en pratique mes
+                        compétences en développement front-end et en conception
+                        d'interfaces utilisateur. Ce projet illustre mon approche :
+                        créer une expérience claire, moderne et intuitive,
+                        avec une attention particulière portée à l'ergonomie,
+                        au design et à la qualité de l'interface.
+                    </p>
+
+                    <div class="project-tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                    </div>
+
+                    <a href="https://dickarnos.github.io/pnbc/"
+                       class="project-link"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Voir le projet
+                        <span class="sr-only">(ouvre un nouvel onglet)</span>
+                        →
+                    </a>
+                </article>
+            </div>
+        </section>
+
+        <section id="contact" class="contact" aria-labelledby="contact-title">
+            <h2 id="contact-title" class="section-title">Contact</h2>
+
+            <h3>Donner vie à vos idées, ensemble</h3>
+
+            <p>
+                Vous avez un projet web, un besoin en design graphique
+                ou une idée à concrétiser ? Je serais ravi d'échanger
+                avec vous pour comprendre vos besoins et explorer
+                les possibilités de collaboration.
+                Contactez-moi pour en discuter !
+            </p>
+
+            <div class="contact-links">
+                <a id="profile-link"
+                   href="https://github.com/zojeoscarpreira-del"
+                   target="_blank"
+                   class="profile-link"
+                   rel="me noopener noreferrer"
+                   aria-label="Profil GitHub de Jose Preira (ouvre un nouvel onglet)">
+                    <span class="link-icon" aria-hidden="true">
+                        <i class="fa-brands fa-github"></i>
+                    </span>
+                    GitHub
+                </a>
+
+                <a href="https://www.linkedin.com/in/jose-preira-131787441"
+                   target="_blank"
+                   class="profile-link"
+                   rel="me noopener noreferrer"
+                   aria-label="Profil LinkedIn de Jose Preira (ouvre un nouvel onglet)">
+                    <span class="link-icon" aria-hidden="true">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </span>
+                    LinkedIn
+                </a>
+
+                <a href="mailto:zojeoscarpreira@gmail.com"
+                   class="profile-link"
+                   aria-label="Envoyer un e-mail à Jose Preira">
+                    <span class="link-icon" aria-hidden="true">
+                        <i class="fa-solid fa-envelope"></i>
+                    </span>
+                    E-mail
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <ul>
+            <li><a href="#about">À propos</a></li>
+            <li><a href="#experiences">Expériences</a></li>
+            <li><a href="#projects">Projets</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <small class="copyright">&copy; 2026 Jose Preira - Tous droits réservés.</small>
+    </footer>
+</body>
+</html>
