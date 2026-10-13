@@ -520,11 +520,11 @@ section {
     border-radius: 50px;
     color: var(--text-primary);
     font-weight: 500;
-    transition: var(--transition);
+    transition: var(--transition-2);
 }
 .profile-link:hover {
     transform: translateY(-3px);
-    background: #333;
+    box-shadow: 0px 0px 5px var(--accent-3);
 }
 .link-icon {
     font-size: 1.1rem;
