@@ -172,8 +172,6 @@ header {
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
-    transform: scale(1.05);
-    font-weight: 600;
 }
 /* Fallback si background-clip non supporté */
 @supports not ((-webkit-background-clip: text) or (background-clip: text)) {
