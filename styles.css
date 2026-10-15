@@ -355,7 +355,6 @@ section {
     flex-direction: column;
     align-items: baseline;
     justify-content: flex-start;
-    cursor: pointer;
     transition: 0.2s ease-in-out;
     position: relative;
     will-change: transform;
@@ -415,7 +414,6 @@ section {
     gap: 1.5rem;
     border: 2px solid black;
     border-radius: 3rem;
-    cursor: pointer;
     transition: var(--transition-2);
     will-change: transform;
 }
