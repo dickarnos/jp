@@ -77,3 +77,25 @@ if (menuToggle && navLinks) {
         }
     });
 }
+const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const isTouch = window.matchMedia('(pointer: coarse)').matches; 
+const shouldRun = !isReducedMotion && !isTouch;
+
+if (shouldRun) {
+    const pointer = document.querySelector(".pointer");
+    let mouseX = 0;
+    let mouseY = 0;
+
+    window.addEventListener("mousemove", e => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+
+        function animate() {
+            pointer.style.setProperty('--mouseX', `${mouseX}px`);
+            pointer.style.setProperty('--mouseY', `${mouseY}px`);
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    })
+}
