@@ -10,7 +10,7 @@
     --accent-3: #BF953F;
 
     /* Typographie */
-    --font-h1: clamp(2.5rem, 5vw, 4rem);
+    --font-h1: clamp(1.5rem, 4vw, 3rem);
     --font-h2: clamp(2rem, 4vw, 3rem);
     --font-body: 1rem;
 
@@ -286,7 +286,6 @@ section {
 .btn-group {
     display: flex;
     gap: 1rem;
-    flex-wrap: wrap;
     justify-content: center;
 }
 .btn-group .btn {
