@@ -55,12 +55,6 @@ ol {
     list-style: none;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
 button {
     font: inherit;
     cursor: pointer;
@@ -345,11 +339,6 @@ section {
     justify-content: center;
     gap: 5rem;
 }
-.experiences-info img {
-    width: 24vw;
-    max-width: 360px;
-}
-
 .grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -695,9 +684,6 @@ footer ul li a:hover {
     }
     .grid {
         grid-template-columns: repeat(1, 1fr);
-    }
-    .experiences-info img {
-        width: 70vw;
     }
     .projects-card img {
         width: 60vw;
