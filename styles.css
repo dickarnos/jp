@@ -45,24 +45,6 @@ body {
     background-color: #ffffff;
     overflow-x: hidden;
 }
-
-.scroll-watcher {
-    position: fixed;
-    bottom: 0;
-    z-index: 1000;
-    height: 0.1px;
-    width: clamp(50vw ,70vw ,93%);
-    background-color: var(--accent-3);
-    scale: 0 1;
-    animation: scroll-watcher linear;
-    animation-timeline: scroll(root block);
-}
-@keyframes scroll-watcher {
-    to{
-        scale: 1 1;
-    }
-}
-
 a {
     text-decoration: none;
     color: inherit;
