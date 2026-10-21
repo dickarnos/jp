@@ -46,6 +46,23 @@ body {
     overflow-x: hidden;
 }
 
+.scroll-watcher {
+    position: fixed;
+    bottom: 0;
+    z-index: 1000;
+    height: 1px;
+    width: clamp(50vw ,70vw ,93%);
+    background-color: var(--accent-3);
+    scale: 0 1;
+    animation: scroll-watcher linear;
+    animation-timeline: scroll(root block);
+}
+@keyframes scroll-watcher {
+    to{
+        scale: 1 1;
+    }
+}
+
 a {
     text-decoration: none;
     color: inherit;
@@ -325,6 +342,16 @@ section {
 .socials a:hover {
     transform: scale(1.1);
 }
+section {
+    animation: fade-out linear;
+    animation-timeline: view();
+    animation-range-start: exit;
+}
+@keyframes fade-out {
+    to{
+        opacity: 0;
+    }
+}
 
 /* =========================================================
    SECTION EXPÉRIENCES
@@ -403,7 +430,24 @@ section {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
 }
-
+@media (prefers-reduced-motion: no-preference) {
+    article > img {
+        animation: fade-in linear forwards;
+        animation-timeline: view();
+        animation-range-start: entry;
+        animation-range-end: 55vh;
+    }
+    @keyframes fade-in {
+        from {
+            scale: .8;
+            opacity: 0;
+        }
+        to {
+            scale: 1;
+            opacity: 1;
+        }
+    }
+}
 .projects-card {
     padding: 3rem 2rem;
     display: flex;
