@@ -1,13 +1,15 @@
 /* =========================================================
    RESET & VARIABLES
    ========================================================= */
-
-
 :root {
     /* Couleurs */
-    --text-primary: #ffffff;
+    --text-primary: #F5F5F5;
     --text-secondary: #000000;
     --accent-3: #BF953F;
+    
+    --bg-primary: #000000;
+    --bg-secondary: #080808;
+    --bg-tertiary: var(--text-primary);
 
     /* Typographie */
     --font-h1: clamp(1.5rem, 4vw, 3rem);
@@ -24,7 +26,6 @@
                   transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-2: 0.3s ease-in-out;
 }
-
 *,
 *::before,
 *::after {
@@ -32,36 +33,31 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 html {
     -webkit-text-size-adjust: 100%;
 }
-
 body {
     font-family: "Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: var(--bg-primary);
     font-size: var(--font-body);
     line-height: 1.6;
-    color: var(--text-secondary);
-    background-color: #ffffff;
+    color: var(--text-primary);
     overflow-x: hidden;
 }
 a {
     text-decoration: none;
     color: inherit;
 }
-
 ul,
 ol {
     list-style: none;
 }
-
 button {
     font: inherit;
     cursor: pointer;
     border: none;
     background: none;
 }
-
 /* Respect des préférences utilisateur pour les animations */
 @media (prefers-reduced-motion: no-preference) {
     html {
@@ -72,8 +68,6 @@ button {
 /* =========================================================
    ACCESSIBILITÉ
    ========================================================= */
-
-/* Classe pour masquer visuellement tout en gardant accessible aux lecteurs d'écran */
 .sr-only {
     position: absolute;
     width: 1px;
@@ -85,8 +79,6 @@ button {
     white-space: nowrap;
     border: 0;
 }
-
-/* Lien d'évitement (skip link) */
 .skip-link {
     position: absolute;
     top: -100px;
@@ -127,7 +119,7 @@ header {
     justify-content: center;
     gap: 5rem;
 
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: var(--bg-secondary);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     color: var(--text-primary);
@@ -169,7 +161,7 @@ header {
 /* Fallback si background-clip non supporté */
 @supports not ((-webkit-background-clip: text) or (background-clip: text)) {
     .nav-links li a:hover {
-        color: #a300a3;
+        color: var(--accent-3);
         background: none;
     }
 }
@@ -208,7 +200,7 @@ main {
 
 section {
     min-height: 100vh;
-    padding: 8rem 12%;
+    padding: 5vh 12%;
     width: 100%;
     position: relative;
 }
@@ -236,11 +228,11 @@ section {
     gap: 10rem;
 }
 .about img {
-    width: 30vw;
-    max-width: 400px;
+    width: clamp(250px, 30vw, 400px);
+    height: auto;
     border-radius: 50%;
-    aspect-ratio: 1 / 1;
     object-fit: cover;
+    object-position: center;
 }
 
 .info-box {
@@ -258,20 +250,7 @@ section {
     font-weight: 600;
     line-height: 1.15;
 }
-.info-box h1 .subtitle {
-    font-size: 1.8rem;
-    font-weight: 500;
-    background: var(--gradient-accessible);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-}
-/* Fallback si background-clip non supporté */
-@supports not ((-webkit-background-clip: text) or (background-clip: text)) {
-    .info-box h1 .subtitle {
-        color: #a300a3;
-    }
-}
+
 
 .info-box p {
     margin: 1rem;
@@ -284,8 +263,8 @@ section {
 }
 .btn-group .btn {
     display: inline-block;
-    border: 2px solid black;
-    color: black;
+    border: 2px solid var(--text-primary);
+    color: var(--text-primary);
     border-radius: 3rem;
     padding: 0.5rem 1rem;
     cursor: pointer;
@@ -295,8 +274,8 @@ section {
     transition: 0.2s ease-in-out;
 }
 .btn-group .btn:hover {
-    background-color: black;
-    color: var(--text-primary);
+    background-color: var(--bg-tertiary);
+    color: var(--text-secondary);
 }
 
 .socials {
@@ -304,7 +283,7 @@ section {
     gap: 2rem;
 }
 .about .socials a {
-    color: var(--text-secondary);
+    color: var(--text-primary);
     cursor: pointer;
     transition: var(--transition-2);
     font-size: 2.5rem;
@@ -346,7 +325,7 @@ section {
 }
 
 .grid-card {
-    border: 2px solid black;
+    border: 2px solid var(--text-primary);
     border-radius: 3rem;
     padding: 2rem;
     display: flex;
@@ -359,7 +338,7 @@ section {
 }
 .grid-card:hover {
     transform: scale(1.02);
-    background-color: black;
+    background-color: var(--bg-secondary);
     color: var(--text-primary);
 }
 
@@ -374,7 +353,7 @@ section {
 /* Fallback si background-clip non supporté */
 @supports not ((-webkit-background-clip: text) or (background-clip: text)) {
     .grid-card span:first-of-type {
-        color: #005f9e;
+        color: var(--accent-3);
     }
 }
 /* Contraste sur hover : le titre de la carte doit rester lisible sur fond noir */
@@ -427,13 +406,13 @@ section {
     justify-content: center;
     text-align: center;
     gap: 1.5rem;
-    border: 2px solid black;
+    border: 2px solid var(--text-primary);
     border-radius: 3rem;
     transition: var(--transition-2);
     will-change: transform;
 }
 .projects-card:hover {
-    background-color: black;
+    background-color: var(--bg-secondary);
     color: var(--text-primary);
     transform: translateY(-10px);
 }
@@ -457,17 +436,16 @@ section {
 .project-tags span {
     font-size: 0.875rem;
     padding: 0.25rem 0.65rem;
-    background: black;
+    background: var(--bg-tertiary);
     border-radius: 50px;
-    color: var(--text-primary);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-secondary);
     transition: var(--transition-2);
 }
 /* Sur hover de la carte, les tags doivent rester lisibles */
 .projects-card:hover .project-tags span {
-    background: #ffffff;
-    color: #000000;
-    border-color: rgba(0, 0, 0, 0.2);
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--text-primary);
 }
 
 .projects-card a {
@@ -523,8 +501,8 @@ section {
     align-items: center;
     gap: 0.5rem;
     padding: 0.75rem 1.5rem;
-    background: black;
-    border: 1px solid black;
+    background: var(--bg-secondary);
+    border: 1px solid var(--bg-secondary);
     border-radius: 50px;
     color: var(--text-primary);
     font-weight: 500;
@@ -607,47 +585,6 @@ footer ul li a:hover {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
-    }
-}
-
-/* Mode contraste élevé (Windows) */
-@media (forced-colors: active) {
-    .visit-btn,
-    .profile-link {
-        border: 2px solid ButtonText;
-    }
-    .grid-card span:first-of-type,
-    .info-box h1 .subtitle,
-    .projects-card a {
-        color: LinkText !important;
-        -webkit-text-fill-color: LinkText !important;
-        background: none !important;
-    }
-}
-
-/* Mode sombre système */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --text-secondary: #f0f0f0;
-    }
-    body {
-        background-color: #0a0a0a;
-        color: var(--text-secondary);
-    }
-    .btn-group .btn {
-        border-color: #f0f0f0;
-        color: #f0f0f0;
-    }
-    .btn-group .btn:hover {
-        background-color: #f0f0f0;
-        color: #000000;
-    }
-    .grid-card,
-    .projects-card {
-        border-color: #f0f0f0;
-    }
-    footer ul li a {
-        color: #f0f0f0;
     }
 }
 
