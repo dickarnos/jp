@@ -30,7 +30,8 @@
     --accent-3: #3B82F6;
     
     --bg-primary: #0B1120;
-    --bg-secondary: #151F35;
+    --bg-secondary: rgb(21, 31, 53);
+    --bg-secondary-blurred : rgba(21, 31, 53, 0.25);
     --bg-tertiary: #1E293B;
 
     --border-color: #273449;
@@ -95,10 +96,14 @@
 html {
     -webkit-text-size-adjust: 100%;
 }
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
 body {
     font-family: "Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
-    background: radial-gradient(circle at 90% 10%, var(--accent-3), var(--bg-primary)25%);
-    opacity: 0.8;
+    background: radial-gradient(circle at 95% 25%, var(--accent-3), var(--bg-primary)25%);
     font-size: var(--font-body);
     line-height: 1.6;
     color: var(--text-primary);
@@ -117,12 +122,6 @@ button {
     cursor: pointer;
     border: none;
     background: none;
-}
-/* Respect des préférences utilisateur pour les animations */
-@media (prefers-reduced-motion: no-preference) {
-    html {
-        scroll-behavior: smooth;
-    }
 }
 
 /* =========================================================
@@ -155,8 +154,6 @@ button {
 .skip-link:focus {
     top: 1rem;
 }
-
-/* Indicateur de focus visible et contrasté pour la navigation au clavier */
 :focus-visible {
     outline: 3px solid var(--accent-3);
     outline-offset: 2px;
@@ -171,18 +168,15 @@ header {
     top: 1rem;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 1000;
-
+    z-index: 999;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 5rem;
-
-    background: var(--bg-secondary);
+    background: var(--bg-secondary-blurred);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     color: var(--text-primary);
-
     padding: 0.5rem 1.5rem;
     border-radius: 3rem;
 }
@@ -371,7 +365,9 @@ section {
     flex-direction: column;
     align-items: baseline;
     justify-content: flex-start;
-    background: var(--bg-primary);
+    background: var(--bg-secondary-blurred);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     transition: 0.2s ease-in-out;
     position: relative;
     will-change: transform;
@@ -450,6 +446,9 @@ section {
     border-radius: 3rem;
     transition: var(--transition);
     will-change: transform;
+    background: var(--bg-secondary-blurred);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 .projects-card:hover {
     background-color: var(--bg-secondary);
