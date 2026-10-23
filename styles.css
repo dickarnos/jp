@@ -24,7 +24,7 @@
                   transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-2: 0.3s ease-in-out;
 } */
-/* :root {
+:root {
     --text-primary: #F8FAFC;
     --text-secondary: #94A3B8;
     --accent-3: #3B82F6;
@@ -46,8 +46,20 @@
                   background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
                   transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-2: 0.3s ease-in-out;
-} */
-:root {
+    .nav-links li a:hover {
+    background: var(--gradient-accessible);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+    @supports not ((-webkit-background-clip: text) or (background-clip: text)) {
+    .nav-links li a:hover {
+        color: var(--accent-3);
+        background: none;
+    }
+}
+}
+/* :root {
     --text-primary: #4A3B40;
     --text-secondary: #94A3B8;
     --accent-3: #D98C9A;
@@ -69,7 +81,10 @@
                   background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
                   transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-2: 0.3s ease-in-out;
-}
+    .nav-links li a:hover {
+        color: var(--bg-primary);
+    }
+} */
 *,
 *::before,
 *::after {
@@ -83,6 +98,7 @@ html {
 body {
     font-family: "Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
     background: radial-gradient(circle at 90% 10%, var(--accent-3), var(--bg-primary)25%);
+    opacity: 0.8;
     font-size: var(--font-body);
     line-height: 1.6;
     color: var(--text-primary);
@@ -194,19 +210,6 @@ header {
     transition: var(--transition);
     padding: 0.25rem 0.5rem;
 }
-.nav-links li a:hover {
-    color: var(--bg-primary);
-    /* background: var(--gradient-accessible);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent; */
-}
-/* @supports not ((-webkit-background-clip: text) or (background-clip: text)) {
-    .nav-links li a:hover {
-        color: var(--accent-3);
-        background: none;
-    }
-} */
 
 .visit-btn {
     padding: 0.8rem 1.5rem;
