@@ -1,8 +1,7 @@
 /* =========================================================
    RESET & VARIABLES
    ========================================================= */
-:root {
-    /* Couleurs */
+/* :root {
     --text-primary: #F5F5F5;
     --text-secondary: #000000;
     --accent-3: #BF953F;
@@ -13,16 +12,59 @@
 
     --border-color: #3F3F46;
 
-    /* Typographie */
     --font-h1: clamp(1.5rem, 4vw, 3rem);
     --font-h2: clamp(2rem, 4vw, 3rem);
     --font-body: 1rem;
 
-    /* Dégradés */
     --gradient-accessible: linear-gradient(150deg, #7A4F01 0%, #BF953F 20%, #FCF6BA 38%, #B38728 52%, #FBF5B7 68%, #AA771C 82%, #8A6E2F 100%);
     --gradient-accessible-reverse: linear-gradient(165deg, #7A4F01 0%, #BF953F 20%, #FCF6BA 38%, #B38728 52%, #FBF5B7 68%, #AA771C 82%, #8A6E2F 100%);
 
-    /* Transitions */
+    --transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                  background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                  transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-2: 0.3s ease-in-out;
+} */
+/* :root {
+    --text-primary: #F8FAFC;
+    --text-secondary: #94A3B8;
+    --accent-3: #3B82F6;
+    
+    --bg-primary: #0B1120;
+    --bg-secondary: #151F35;
+    --bg-tertiary: #1E293B;
+
+    --border-color: #273449;
+
+    --font-h1: clamp(1.5rem, 4vw, 3rem);
+    --font-h2: clamp(2rem, 4vw, 3rem);
+    --font-body: 1rem;
+
+    --gradient-accessible: linear-gradient(to right, var(--accent-3), var(--bg-secondary));
+    --gradient-accessible-reverse: linear-gradient(to left, var(--accent-3), var(--bg-secondary));;
+
+    --transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                  background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                  transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-2: 0.3s ease-in-out;
+} */
+:root {
+    --text-primary: #4A3B40;
+    --text-secondary: #94A3B8;
+    --accent-3: #D98C9A;
+    
+    --bg-primary: #FFF8F2;
+    --bg-secondary: #F4C7CF;
+    --bg-tertiary: #1E293B;
+
+    --border-color: #E8DAD5;
+
+    --font-h1: clamp(1.5rem, 4vw, 3rem);
+    --font-h2: clamp(2rem, 4vw, 3rem);
+    --font-body: 1rem;
+
+    --gradient-accessible: linear-gradient(to right, var(--accent-3), var(--bg-secondary));
+    --gradient-accessible-reverse: linear-gradient(to left, var(--accent-3), var(--bg-secondary));;
+
     --transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
                   background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
                   transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -40,7 +82,7 @@ html {
 }
 body {
     font-family: "Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
-    background: var(--bg-primary);
+    background: radial-gradient(circle at 90% 10%, var(--accent-3), var(--bg-primary)25%);
     font-size: var(--font-body);
     line-height: 1.6;
     color: var(--text-primary);
@@ -120,7 +162,7 @@ header {
     justify-content: center;
     gap: 5rem;
 
-    background-color: var(--bg-secondary);
+    background: var(--bg-secondary);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     color: var(--text-primary);
@@ -153,18 +195,18 @@ header {
     padding: 0.25rem 0.5rem;
 }
 .nav-links li a:hover {
-    background: var(--gradient-accessible);
+    color: var(--bg-primary);
+    /* background: var(--gradient-accessible);
     background-clip: text;
     -webkit-background-clip: text;
-    color: transparent;
+    color: transparent; */
 }
-/* Fallback si background-clip non supporté */
-@supports not ((-webkit-background-clip: text) or (background-clip: text)) {
+/* @supports not ((-webkit-background-clip: text) or (background-clip: text)) {
     .nav-links li a:hover {
         color: var(--accent-3);
         background: none;
     }
-}
+} */
 
 .visit-btn {
     padding: 0.8rem 1.5rem;
@@ -263,19 +305,18 @@ section {
 }
 .btn-group .btn {
     display: inline-block;
-    border: 2px solid var(--border-color);
     color: var(--text-primary);
     border-radius: 3rem;
     padding: 0.5rem 1rem;
     cursor: pointer;
-    background: none;
+    background: var(--accent-3);
     font-weight: bold;
     white-space: nowrap;
     transition: 0.2s ease-in-out;
 }
 .btn-group .btn:hover {
-    background-color: var(--bg-tertiary);
-    color: var(--text-secondary);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
 }
 
 .socials {
@@ -332,6 +373,7 @@ section {
     flex-direction: column;
     align-items: baseline;
     justify-content: flex-start;
+    background: var(--bg-primary);
     transition: 0.2s ease-in-out;
     position: relative;
     will-change: transform;
@@ -408,7 +450,7 @@ section {
     gap: 1.5rem;
     border: 2px solid var(--border-color);
     border-radius: 3rem;
-    transition: var(--transition-2);
+    transition: var(--transition);
     will-change: transform;
 }
 .projects-card:hover {
@@ -421,6 +463,12 @@ section {
     max-width: 320px;
     border-radius: 1rem;
     height: auto;
+    background: var(--gradient-accessible);
+    transition: var(--transition);
+}
+.projects-card:hover img {
+    background: none;
+    transform: scale(1.3);
 }
 .projects-card h3 {
     font-size: 2rem;
@@ -436,38 +484,39 @@ section {
 .project-tags span {
     font-size: 0.875rem;
     padding: 0.25rem 0.65rem;
-    background: var(--bg-tertiary);
+    background: var(--bg-secondary);
     border-radius: 50px;
-    color: var(--text-secondary);
+    color: var(--text-primary);
     transition: var(--transition-2);
 }
 /* Sur hover de la carte, les tags doivent rester lisibles */
-.projects-card:hover .project-tags span {
-    background: var(--bg-secondary);
+.projects-card:hover .project-tags span{
+    background: var(--bg-primary);
     color: var(--text-primary);
     border: 1px solid var(--border-color);
 }
-
 .projects-card a {
     background: var(--gradient-accessible);
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
     align-self: flex-end;
-    font-weight: 600;
+    font-weight: bold;
     padding: 0.5rem 0.75rem;
     border-radius: 0.5rem;
     transition: var(--transition-2);
 }
-/* Fallback si background-clip non supporté */
 @supports not ((-webkit-background-clip: text) or (background-clip: text)) {
     .projects-card a {
         color: var(--accent-3);
     }
 }
+.projects-card:hover a {
+    color: var(--text-primary)  ;
+}
 .projects-card a:hover,
 .projects-card a:focus-visible {
-    opacity: 0.7;
+    color: var(--text-primary);
 }
 
 /* =========================================================
@@ -500,17 +549,29 @@ section {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
     border-radius: 50px;
     color: var(--text-primary);
     font-weight: 500;
-    transition: var(--transition-2);
+    transition: var(--transition);
+    position: relative;
+    padding: 0.5rem 0.7rem;
+    background: var(--bg-secondary);
+}
+.profile-link::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    background: var(--gradient-accessible);
+    z-index: -1;
 }
 .profile-link:hover {
+    border: none;
     transform: translateY(-3px);
-    box-shadow: 0px 0px 5px var(--accent-3);
+    box-shadow: 40px 0 100px var(--accent-3), -40px 0 100px var(--accent-3);
 }
 .link-icon {
     font-size: 1.1rem;
@@ -530,6 +591,20 @@ footer {
     align-items: center;
     justify-content: center;
     padding: 2rem 1rem;
+    /* background: linear-gradient(270deg, var(--accent-3), var(--bg-primary)25%);
+    background-size: 300% 300%;
+    animation: gradient 5s linear infinite; */
+}
+@keyframes gradient  {
+    0%{
+        background-position: 0% 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
 }
 footer ul {
     display: flex;
@@ -541,7 +616,7 @@ footer ul {
 
 footer ul li a {
     display: inline-block;
-    font-weight: 600;
+    font-weight: bold;
     padding: 0.5rem;
 
     background-image: var(--gradient-accessible);
@@ -635,7 +710,7 @@ footer ul li a:hover {
         position: absolute;
         top: 100%;
         left: 0;
-        background-color: black;
+        background-color: var(--bg-secondary);
         margin-top: 1rem;
         width: 100%;
         padding: 1rem;
