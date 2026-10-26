@@ -1,8 +1,8 @@
 /* =========================================================
    RESET & VARIABLES
    ========================================================= */
-/* .black-gold{
-    L'élégance dans chaque détail.
+    /* L'élégance dans chaque détail */
+   /* .black-gold{
     --text-primary: #F5F5F5;
     --text-secondary: #000000;
     --accent-3: #BF953F;
@@ -16,8 +16,8 @@
     --gradient-accessible: linear-gradient(150deg, #7A4F01 0%, #BF953F 20%, #FCF6BA 38%, #B38728 52%, #FBF5B7 68%, #AA771C 82%, #8A6E2F 100%);
     --gradient-accessible-reverse: linear-gradient(165deg, #7A4F01 0%, #BF953F 20%, #FCF6BA 38%, #B38728 52%, #FBF5B7 68%, #AA771C 82%, #8A6E2F 100%);
 } */
+    /* La douceur d'un design intemporel */
 /* .solf-blush {
-    La douceur d'un design intemporel.
     --text-primary: #4A3B40;
     --text-secondary: #94A3B8;
     --accent-3: #D98C9A;
@@ -57,6 +57,7 @@
 
     --gradient-accessible: linear-gradient(to right, var(--accent-3), var(--bg-secondary));
     --gradient-accessible-reverse: linear-gradient(to left, var(--accent-3), var(--bg-secondary));;
+    --gradient-text: linear-gradient(to left, var(--accent-3), var(--text-primary));;
 
     --transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
                   background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
@@ -143,6 +144,38 @@ button {
     outline-offset: 2px;
     border-radius: 4px;
 }
+@media (prefers-reduced-motion: no-preference) {
+    article > img {
+        animation: fade-in linear forwards;
+        animation-timeline: view();
+        animation-range-start: entry;
+        animation-range-end: 55vh;
+    }
+    @keyframes fade-in {
+        from {
+            scale: .8;
+            opacity: 0;
+        }
+        to {
+            scale: 1;
+            opacity: 1;
+        }
+    }
+}
+/* =========================================================
+   PRÉFÉRENCES UTILISATEUR
+   ========================================================= */
+/* Respect des préférences de mouvement réduit */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
 /* =========================================================
    HEADER
    ========================================================= */
@@ -219,16 +252,14 @@ section {
     padding: var(--padding-page);
     width: 100%;
     margin: 2rem 0;
+    animation: fade-out linear;
+    animation-timeline: view();
+    animation-range-start: exit;
 }
 .section-title {
     text-align: center;
     font-size: var(--font-h2);
     font-weight: 600;
-}
-section {
-    animation: fade-out linear;
-    animation-timeline: view();
-    animation-range-start: exit;
 }
 @keyframes fade-out {
     to{
@@ -268,6 +299,26 @@ section {
 .about .info-box p {
     margin: 1rem 0;
 }
+.subtitle span {
+  display: inline-block;
+  white-space: nowrap;
+  vertical-align: bottom;
+  background: var(--gradient-text);
+  background-clip: text;
+  color: transparent;
+  text-wrap: wrap;
+}
+.subtitle span::after {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 4px;
+  background: var(--text-primary);
+  vertical-align: middle;
+  animation: blink 0.7s steps(1) infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
 .about .btn-group {
     display: flex;
     gap: 1rem;
@@ -347,8 +398,6 @@ section {
     font-size: var(--font-h2);
     font-weight: 600;
 }
-
-
 .services .services-intro {
     max-width: 750px;
     margin: 0 auto;
@@ -372,7 +421,7 @@ section {
     border-radius: var(--border-radius);
     background: var(--bg-secondary-blurred);
 }
-/* Icône à gauche, sur toute la hauteur du contenu */
+/* Icône à gauche, sur toute la hauteur du contenu de la carte de service*/
 .service-card .icon {
     grid-column: 1;
     grid-row: 1 / -1;
@@ -386,17 +435,21 @@ section {
     color: var(--text-primary);
     font-size: 2em;
 }
-/* Titre à droite */
+/* Titre à droite de la carte de service */
 .service-card h3 {
     grid-column: 2;
     grid-row: 1;
 }
-/* Paragraphe à droite */
+/* Paragraphe à droite de la carte de service */
 .service-card p {
     grid-column: 2;
     grid-row: 4;
 }
-/* Liste des valeurs */
+.service-card p>span {
+    color: var(--accent-3);
+    font-weight: bold;
+}
+/* Liste des valeurs de la dernière carte de service */
 .services .service-values {
     display: grid;
     gap: 12px;
@@ -410,13 +463,6 @@ section {
 /* =========================================================
    SECTION EXPÉRIENCES
    ========================================================= */
-.experiences-info {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5rem;
-}
-
 .grid-card {
     border: 2px solid var(--border-color);
     border-radius: var(--border-radius);
@@ -437,7 +483,6 @@ section {
     background-color: var(--bg-secondary);
     color: var(--text-primary);
 }
-
 .grid-card span:first-of-type {
     font-size: 1.5rem;
     font-weight: 500;
@@ -446,19 +491,16 @@ section {
     -webkit-background-clip: text;
     color: transparent;
 }
-/* Fallback si background-clip non supporté */
 @supports not ((-webkit-background-clip: text) or (background-clip: text)) {
     .grid-card span:first-of-type {
         color: var(--accent-3);
     }
 }
-/* Contraste sur hover : le titre de la carte doit rester lisible sur fond noir */
 .grid-card:hover span:first-of-type {
     background: none;
     color: var(--accent-3);
     -webkit-text-fill-color: var(--accent-3);
 }
-
 .grid-card span:last-of-type {
     position: absolute;
     bottom: 0;
@@ -466,34 +508,9 @@ section {
     margin-bottom: 1rem;
     align-self: flex-end;
 }
-
 /* =========================================================
    SECTION PROJETS
    ========================================================= */
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-@media (prefers-reduced-motion: no-preference) {
-    article > img {
-        animation: fade-in linear forwards;
-        animation-timeline: view();
-        animation-range-start: entry;
-        animation-range-end: 55vh;
-    }
-    @keyframes fade-in {
-        from {
-            scale: .8;
-            opacity: 0;
-        }
-        to {
-            scale: 1;
-            opacity: 1;
-        }
-    }
-}
 .projects-card {
     padding: 3rem 2rem;
     display: flex;
@@ -530,7 +547,6 @@ section {
     font-size: 2rem;
     font-weight: 500;
 }
-
 .project-tags {
     display: flex;
     flex-wrap: wrap;
@@ -545,7 +561,6 @@ section {
     color: var(--text-primary);
     transition: var(--transition-2);
 }
-/* Sur hover de la carte, les tags doivent rester lisibles */
 .projects-card:hover .project-tags span{
     background: var(--bg-primary);
     color: var(--text-primary);
@@ -574,11 +589,9 @@ section {
 .projects-card a:focus-visible {
     color: var(--text-primary);
 }
-
 /* =========================================================
    SECTION CONTACT
    ========================================================= */
-
 .contact {
     display: flex;
     flex-direction: column;
@@ -600,7 +613,6 @@ section {
     gap: 2rem;
     flex-wrap: wrap;
 }
-
 .profile-link {
     display: inline-flex;
     align-items: center;
@@ -633,7 +645,6 @@ section {
     font-size: 1.1rem;
     color: var(--text-primary);
 }
-
 /* =========================================================
    FOOTER
    ========================================================= */
@@ -647,20 +658,6 @@ footer {
     align-items: center;
     justify-content: center;
     padding: 2rem 1rem;
-    /* background: linear-gradient(270deg, var(--accent-3), var(--bg-primary)25%);
-    background-size: 300% 300%;
-    animation: gradient 5s linear infinite; */
-}
-@keyframes gradient  {
-    0%{
-        background-position: 0% 50%;
-    }
-    50%{
-        background-position: 100% 50%;
-    }
-    100%{
-        background-position: 0% 50%;
-    }
 }
 footer ul {
     display: flex;
@@ -669,7 +666,6 @@ footer ul {
     flex-wrap: wrap;
     justify-content: center;
 }
-
 footer ul li a {
     display: inline-block;
     font-weight: bold;
@@ -685,40 +681,13 @@ footer ul li a {
     text-decoration: none;
     transition: opacity 0.3s ease;
 }
-
 footer ul li a:hover {
     opacity: 0.75;
-}
-
-/* Compatibilité avec le mode sombre */
-@media (prefers-color-scheme: dark) {
-    footer ul li a {
-        color: transparent;
-        -webkit-text-fill-color: transparent;
-        background-image: var(--gradient-accessible);
-    }
 }
 .copyright {
     font-size: 0.875rem;
     margin-top: 2rem;
 }
-
-/* =========================================================
-   PRÉFÉRENCES UTILISATEUR
-   ========================================================= */
-
-/* Respect des préférences de mouvement réduit */
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
-}
-
 /* =========================================================
    RESPONSIVE
    ========================================================= */
@@ -728,11 +697,11 @@ footer ul li a:hover {
         padding: 1rem 2rem;
         gap: 2rem;
     }
+    header .logo {
+        display: none;
+    }
     .about {
         gap: 1rem;
-    }
-    .experiences-info {
-        flex-direction: column;
     }
 }
 
@@ -740,9 +709,6 @@ footer ul li a:hover {
     header {
         padding: 1rem 1rem;
         gap: 1rem;
-    }
-    header .logo {
-        font-size: 1rem;
     }
     header .visit-btn {
         display: none;
@@ -796,6 +762,7 @@ footer ul li a:hover {
         width: 90%;
     }
     header .logo {
+        display: block;
         font-size: 1.2rem;
     }
     .about img {
@@ -810,9 +777,15 @@ footer ul li a:hover {
     .section-title {
         font-size: 2.5rem;
     }
+    .subtitle-text {
+        max-width: 65ch; /* 65 caractères de large */
+        text-align: justify;
+        hyphens: auto;
+    }
 }
-
-/* .pointer {
+/* Ombre au déplacement de la souris */
+/* 
+.pointer {
     position: fixed;
     top: 0;
     left: 0;

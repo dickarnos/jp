@@ -77,25 +77,48 @@ if (menuToggle && navLinks) {
         }
     });
 }
-const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const isTouch = window.matchMedia('(pointer: coarse)').matches; 
-const shouldRun = !isReducedMotion && !isTouch;
+// Effect au déplacement de la souris
+// const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+// const isTouch = window.matchMedia('(pointer: coarse)').matches; 
+// const shouldRun = !isReducedMotion && !isTouch;
 
-if (shouldRun) {
-    const pointer = document.querySelector(".pointer");
-    let mouseX = 0;
-    let mouseY = 0;
+// if (shouldRun) {
+//     const pointer = document.querySelector(".pointer");
+//     let mouseX = 0;
+//     let mouseY = 0;
 
-    window.addEventListener("mousemove", e => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
+//     window.addEventListener("mousemove", e => {
+//         mouseX = e.clientX;
+//         mouseY = e.clientY;
 
-        function animate() {
-            pointer.style.setProperty('--mouseX', `${mouseX}px`);
-            pointer.style.setProperty('--mouseY', `${mouseY}px`);
-            requestAnimationFrame(animate);
-        }
+//         function animate() {
+//             pointer.style.setProperty('--mouseX', `${mouseX}px`);
+//             pointer.style.setProperty('--mouseY', `${mouseY}px`);
+//             requestAnimationFrame(animate);
+//         }
 
-        animate();
-    })
+//         animate();
+//     })
+// }
+
+// Effet de saisie caractére par caractére
+const words = ["Designer d’interfaces web", "Concepteur de sites web", "Designer UI/UX", "Dévloppeur web freelance", "Testeur logiciel"];
+const el = document.querySelector('.subtitle span');
+let i = 0, char = 0, deleting = false;
+
+function tick() {
+  const w = words[i];
+  el.textContent = w.slice(0, char);
+  if (!deleting && char === w.length) {
+    deleting = true;
+    return setTimeout(tick, 1500);           // pause mot complet
+  }
+  if (deleting && char === 0) {
+    deleting = false;
+    i = (i + 1) % words.length;
+    return setTimeout(tick, 300);
+  }
+  char += deleting ? -1 : 1;
+  setTimeout(tick, deleting ? 90 : 200);
 }
+tick();
