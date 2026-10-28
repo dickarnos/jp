@@ -122,3 +122,81 @@ function tick() {
   setTimeout(tick, deleting ? 90 : 200);
 }
 tick();
+
+
+// Menu de navigation pour les thèmes
+const themes = [
+    {
+        name: "gold",
+        message: "l\'élégance dans chaque détail"
+    },
+    {
+        name: "blush",
+        message: "La douceur d\'un design intemporel"
+    },
+    {
+        name: "midnight",
+        message: "La technologie au service de l'innovation."
+    },
+];
+const themeSelector = document.getElementById("theme-selector");
+const themeDropdown = document.getElementById("theme-dropdown");
+const themeItems = document.querySelectorAll('[role="menuitem"]');
+
+function toggleMenu() {
+  const isExpanded =
+    themeSelector.getAttribute("aria-expanded") === "true";
+
+  themeDropdown.hidden = isExpanded;
+
+  themeSelector.setAttribute("aria-expanded", String(!isExpanded));
+}
+
+themeSelector.addEventListener("click", toggleMenu);
+
+function selectedTheme(theme) {
+    // Vérifier si le thème existe
+    const selectedTheme = themes.find(t => t.name === theme);
+    if(!selectedTheme) return;
+
+    // supprimer les thèmes précédent
+    themes.forEach(t => {
+        document.body.classList.remove(t.name);
+    });
+
+    // Appliquer le thème selectionner
+    document.body.classList.add(selectedTheme.name)
+
+    // Fermer la fenétre
+    themeDropdown.hidden = true;
+    themeSelector.setAttribute("aria-expanded", false);
+}
+
+
+themeItems.forEach((item) => {
+    item.addEventListener("click", () => {
+        const theme = item.id;
+        selectedTheme(theme);
+    })
+
+    item.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+
+            const themeName = item.id;
+            selectedTheme(themeName);
+        }
+    });
+})
+
+// Close the menu with Escape.
+document.addEventListener("keydown", (event) => {
+  if (
+    event.key === "Escape" &&
+    !themeDropdown.hidden
+  ) {
+    themeDropdown.hidden = true;
+    themeSelector.setAttribute("aria-expanded", "false");
+    themeSelector.focus();
+  }
+});

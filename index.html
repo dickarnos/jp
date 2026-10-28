@@ -447,7 +447,32 @@
                 </a>
             </div>
         </section>
-        <div class="pointer" aria-hidden="true"></div>
+        <!-- Menue pour les thmèmes -->
+        
+        <button id="theme-selector" class="theme-selector" aria-haspopup="true" aria-expanded="false" aria-controls="theme-dropdown" type="button">
+            <span><i class="fa-solid fa-paintbrush" aria-hidden="true"></i></span>
+            <span class="sr-only">changer de thème</span>
+        </button>
+
+        <ul id="theme-dropdown" role="menu" aria-labelledby="theme-selector" hidden>
+            <li role="menuitem" tabindex="0" id="gold">
+                <span class="theme-name">Black Gold</span><br>
+                <span class="theme-description">L'élégance dans chaque détail</span>
+            </li>
+        
+            <li role="menuitem" tabindex="0" id="blush">
+                <span class="theme-name">Soft Blush</span><br>
+                <span class="theme-description">La douceur d'un design intemporel</span>
+            </li>
+        
+            <li role="menuitem" tabindex="0" id="midnight">
+                <span class="theme-name">Midnight</span><br>
+                <span class="theme-description">La technologie au service de l'innovation.</span>
+            </li>
+        </ul>
+
+        
+        <!-- <div class="pointer" aria-hidden="true"></div> -->
     </main>
 
     <footer>

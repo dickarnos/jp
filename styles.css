@@ -1,8 +1,13 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
 /* =========================================================
    RESET & VARIABLES
    ========================================================= */
+    /* black-gold */
     /* L'élégance dans chaque détail */
-   /* .black-gold{
+   .gold {
     --text-primary: #F5F5F5;
     --text-secondary: #000000;
     --accent-3: #BF953F;
@@ -15,9 +20,11 @@
 
     --gradient-accessible: linear-gradient(150deg, #7A4F01 0%, #BF953F 20%, #FCF6BA 38%, #B38728 52%, #FBF5B7 68%, #AA771C 82%, #8A6E2F 100%);
     --gradient-accessible-reverse: linear-gradient(165deg, #7A4F01 0%, #BF953F 20%, #FCF6BA 38%, #B38728 52%, #FBF5B7 68%, #AA771C 82%, #8A6E2F 100%);
-} */
+    --gradient-text: linear-gradient(to left, var(--accent-3), var(--text-primary));;
+}
+    /* solf-blush */
     /* La douceur d'un design intemporel */
-/* .solf-blush {
+    .blush {
     --text-primary: #4A3B40;
     --text-secondary: #94A3B8;
     --accent-3: #D98C9A;
@@ -29,12 +36,13 @@
     --border-color: #E8DAD5;
 
     --gradient-accessible: linear-gradient(to right, var(--accent-3), var(--bg-secondary));
-    --gradient-accessible-reverse: linear-gradient(to left, var(--accent-3), var(--bg-secondary));;
+    --gradient-accessible-reverse: linear-gradient(to left, var(--accent-3), var(--bg-secondary));
+    --gradient-text: linear-gradient(to left, var(--accent-3), var(--text-primary));
 
     .nav-links li a:hover {
         color: var(--bg-primary) !important;
     }
-} */
+}
 :root {
     /* MIDNIGHT
     La technologie au service de l'innovation. */
@@ -42,10 +50,9 @@
     --text-secondary: #94A3B8;
     --accent-3: #3B82F6;
     
-    --bg-primary: #0B1120;
+    --bg-primary: #1E293B;
     --bg-secondary: rgb(21, 31, 53);
     --bg-secondary-blurred : rgba(21, 31, 53, 0.25);
-    --bg-tertiary: #1E293B;
 
     --border-color: #273449;
 
@@ -53,6 +60,7 @@
     --font-h2: clamp(2rem, 4vw, 3rem);
     --font-body: 1rem;
     --padding-page: 5rem 12%;
+    --padding-card: 40px;
     --border-radius: 3rem;
 
     --gradient-accessible: linear-gradient(to right, var(--accent-3), var(--bg-secondary));
@@ -90,11 +98,14 @@ html {
     scroll-behavior: smooth;
 }
 body {
-    font-family: "Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
     background: radial-gradient(circle at 95% 25%, var(--accent-3), var(--bg-primary)25%);
     font-size: var(--font-body);
     line-height: 1.6;
     color: var(--text-primary);
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Poppins";
 }
 a {
     text-decoration: none;
@@ -296,17 +307,17 @@ section {
     font-weight: 600;
     line-height: 1.15;
 }
-.about .info-box p {
+.about .info-box .subtitle {
     margin: 1rem 0;
 }
 .subtitle span {
-  display: inline-block;
-  white-space: nowrap;
-  vertical-align: bottom;
-  background: var(--gradient-text);
-  background-clip: text;
-  color: transparent;
-  text-wrap: wrap;
+    display: inline-block;
+    white-space: nowrap;
+    vertical-align: bottom;
+    background: var(--gradient-text);
+    background-clip: text;
+    color: transparent;
+    text-wrap: wrap;
 }
 .subtitle span::after {
   content: "";
@@ -446,6 +457,7 @@ section {
     grid-row: 4;
 }
 .service-card p>span {
+    font-family: "Space Grotesk", sans-serif;
     color: var(--accent-3);
     font-weight: bold;
 }
@@ -820,3 +832,50 @@ footer ul li a:hover {
         display: none;
     }
 } */
+
+.theme-selector {
+    position: fixed;
+    bottom: 5%;
+    right: 2.5%;
+    background-color: var(--bg-secondary-blurred);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 50%;
+    padding: 1lh;
+}
+.theme-selector span:first-of-type {
+    color: var(--text-primary);
+    font-size: 1em;
+    font-weight: bolder;
+}
+#theme-dropdown {
+  position: fixed;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+
+  min-width: 90vw;
+  padding: var(--padding-card);
+
+  background: var(--bg-secondary-blurred);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  
+}
+
+#theme-dropdown li {
+    color: var(--text-primary);
+    padding: 0.5lh 0;
+    font-size: 100%;
+    font-weight: 700;
+    transition: var(--transition);
+}
+#theme-dropdown li:hover {
+    color: var(--accent-3);
+}
+.theme-description {
+    font-size: small;
+    font-weight: normal;
+}
