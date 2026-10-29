@@ -20,13 +20,15 @@
 
     --gradient-accessible: linear-gradient(150deg, #7A4F01 0%, #BF953F 20%, #FCF6BA 38%, #B38728 52%, #FBF5B7 68%, #AA771C 82%, #8A6E2F 100%);
     --gradient-accessible-reverse: linear-gradient(165deg, #7A4F01 0%, #BF953F 20%, #FCF6BA 38%, #B38728 52%, #FBF5B7 68%, #AA771C 82%, #8A6E2F 100%);
-    --gradient-text: linear-gradient(to left, var(--accent-3), var(--text-primary));;
+    --gradient-text: linear-gradient(to left, var(--accent-3), var(--text-primary));
+
+    --profil-img: url("./profil-black.png");
 }
     /* solf-blush */
     /* La douceur d'un design intemporel */
     .blush {
     --text-primary: #4A3B40;
-    --text-secondary: #94A3B8;
+    --text-secondary: #4A3B40;
     --accent-3: #D98C9A;
     
     --bg-primary: #FFF8F2;
@@ -39,6 +41,8 @@
     --gradient-accessible-reverse: linear-gradient(to left, var(--accent-3), var(--bg-secondary));
     --gradient-text: linear-gradient(to left, var(--accent-3), var(--text-primary));
 
+    --profil-img: url("./profil2.png");
+
     .nav-links li a:hover {
         color: var(--bg-primary) !important;
     }
@@ -47,7 +51,7 @@
     /* MIDNIGHT
     La technologie au service de l'innovation. */
     --text-primary: #F8FAFC;
-    --text-secondary: #94A3B8;
+    --text-secondary: #F8FAFC;
     --accent-3: #3B82F6;
     
     --bg-primary: #1E293B;
@@ -66,6 +70,8 @@
     --gradient-accessible: linear-gradient(to right, var(--accent-3), var(--bg-secondary));
     --gradient-accessible-reverse: linear-gradient(to left, var(--accent-3), var(--bg-secondary));;
     --gradient-text: linear-gradient(to left, var(--accent-3), var(--text-primary));;
+
+    --profil-img: url("./profil.png");
 
     --transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
                   background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
@@ -91,6 +97,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    border: none;
 }
 html {
     text-size-adjust: 100%;
@@ -117,7 +124,6 @@ ol {
 }
 button {
     cursor: pointer;
-    border: none;
     background: none;
 }
 /* =========================================================
@@ -235,12 +241,13 @@ header {
 .visit-btn {
     padding: 0.8rem 1.5rem;
     border-radius: var(--border-radius);
-    font-weight: bold;
+    font-weight: bolder;
     font-size: 1rem;
     cursor: pointer;
     white-space: nowrap;
     transition: var(--transition);
     background: var(--gradient-accessible);
+    color: var(--text-secondary);
 }
 .visit-btn:hover {
     transform: scale(1.03);
@@ -287,12 +294,14 @@ section {
     justify-content: center;
     gap: 10rem;
 }
-.about img {
-    width: clamp(250px, 30vw, 400px);
-    height: auto;
+.profil-img {
+    background-image: var(--profil-img);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: clamp(250px, 50vw, 800px);
+    aspect-ratio: 1 / 1;
     border-radius: 50%;
-    object-fit: cover;
-    object-position: center;
 }
 .about .info-box {
     display: flex;
@@ -636,26 +645,20 @@ section {
     position: relative;
     padding: 0.5rem 0.7rem;
     background: var(--bg-secondary);
-}
-.profile-link::after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    content: "";
-    width: 100%;
-    height: 100%;
-    border-radius: 50px;
-    background: var(--gradient-accessible);
-    z-index: -1;
+    box-shadow: 20px 0 200px var(--accent-3), -20px 0 200px var(--accent-3);
 }
 .profile-link:hover {
-    border: none;
     transform: translateY(-3px);
-    box-shadow: 40px 0 100px var(--accent-3), -40px 0 100px var(--accent-3);
+    background: var(--gradient-accessible);
+    color: var(--text-secondary);
 }
 .link-icon {
     font-size: 1.1rem;
     color: var(--text-primary);
+}
+
+.profile-link:hover .link-icon {
+    color: var(--text-secondary);
 }
 /* =========================================================
    FOOTER
@@ -854,7 +857,7 @@ footer ul li a:hover {
   left: 50vw;
   transform: translate(-50%, -50%);
 
-  min-width: 90vw;
+  min-width: min(90vw, 500px);
   padding: var(--padding-card);
 
   background: var(--bg-secondary-blurred);
