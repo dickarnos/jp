@@ -163,16 +163,34 @@ button {
         animation: fade-in linear forwards;
         animation-timeline: view();
         animation-range-start: entry;
-        animation-range-end: 55vh;
+        animation-range-end: 25vh;
     }
     @keyframes fade-in {
         from {
             scale: .8;
             opacity: 0;
+            filter: saturate(0) contrast(0) brightness(.1) blur(5px);
         }
         to {
+            filter: none;
             scale: 1;
             opacity: 1;
+        }
+    }
+    h2, h2 + p, h2 + h3 {
+    animation: text-appear both;
+    animation-timeline: view();
+    animation-range-start: entry;
+    animation-range-end: cover 100vh;
+    }
+    @keyframes text-appear {
+        from {
+            opacity: 0;
+            transform: translateY(5vh);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
         }
     }
 }
@@ -267,16 +285,16 @@ section {
     animation-timeline: view();
     animation-range-start: exit;
 }
-.section-title {
-    text-align: center;
-    font-size: var(--font-h2);
-    font-weight: 600;
-}
 @keyframes fade-out {
     to{
         opacity: 0;
         scale: 0.8;
     }
+}
+.section-title {
+    text-align: center;
+    font-size: var(--font-h2);
+    font-weight: 600;
 }
 /* =========================================================
    SECTION ABOUT
