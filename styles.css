@@ -5,16 +5,15 @@
 /* =========================================================
    RESET & VARIABLES
    ========================================================= */
-    /* black-gold */
-    /* L'élégance dans chaque détail */
-   .gold {
+.gold {
     --text-primary: #F5F5F5;
     --text-secondary: #000000;
     --accent-3: #BF953F;
     
-    --bg-primary: #000000;
+    --bg-primary: #000000; 
     --bg-secondary: #080808;
     --bg-tertiary: var(--text-primary);
+    --bg-secondary-blurred : rgba(8, 8, 8, 0.25);
 
     --border-color: #3F3F46;
 
@@ -23,10 +22,9 @@
     --gradient-text: linear-gradient(to left, var(--accent-3), var(--text-primary));
 
     --profil-img: url("./profil-black.png");
-}
-    /* solf-blush */
-    /* La douceur d'un design intemporel */
-    .blush {
+    }
+
+.blush {
     --text-primary: #4A3B40;
     --text-secondary: #4A3B40;
     --accent-3: #D98C9A;
@@ -34,6 +32,7 @@
     --bg-primary: #FFF8F2;
     --bg-secondary: #F4C7CF;
     --bg-tertiary: #1E293B;
+    --bg-secondary-blurred : rgba(255, 248, 242, 0.25);
 
     --border-color: #E8DAD5;
 
@@ -42,11 +41,8 @@
     --gradient-text: linear-gradient(to left, var(--accent-3), var(--text-primary));
 
     --profil-img: url("./profil2.png");
-
-    .nav-links li a:hover {
-        color: var(--bg-primary) !important;
     }
-}
+    
 :root {
     /* MIDNIGHT
     La technologie au service de l'innovation. */
@@ -73,10 +69,8 @@
 
     --profil-img: url("./profil.png");
 
-    --transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-                  background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-                  transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-2: 0.3s ease-in-out;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-2: all 0.3s ease-in-out;
     .nav-links li a:hover {
     background: var(--gradient-accessible);
     background-clip: text;
@@ -161,6 +155,9 @@ button {
     outline-offset: 2px;
     border-radius: 4px;
 }
+/* =========================================================
+   PRÉFÉRENCES UTILISATEUR
+   ========================================================= */
 @media (prefers-reduced-motion: no-preference) {
     article > img {
         animation: fade-in linear forwards;
@@ -179,10 +176,6 @@ button {
         }
     }
 }
-/* =========================================================
-   PRÉFÉRENCES UTILISATEUR
-   ========================================================= */
-/* Respect des préférences de mouvement réduit */
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -269,7 +262,7 @@ section {
     min-height: 90vh;
     padding: var(--padding-page);
     width: 100%;
-    margin: 2rem 0;
+    margin-top: 2rem;
     animation: fade-out linear;
     animation-timeline: view();
     animation-range-start: exit;
@@ -293,6 +286,7 @@ section {
     align-items: center;
     justify-content: center;
     gap: 10rem;
+    transition: var(--transition-2);
 }
 .profil-img {
     background-image: var(--profil-img);
@@ -329,14 +323,14 @@ section {
     text-wrap: wrap;
 }
 .subtitle span::after {
-  content: "";
-  display: inline-block;
-  width: 2px;
-  height: 1em;
-  margin-left: 4px;
-  background: var(--text-primary);
-  vertical-align: middle;
-  animation: blink 0.7s steps(1) infinite;
+    content: "";
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    margin-left: 4px;
+    background: var(--text-primary);
+    vertical-align: middle;
+    animation: blink 0.7s steps(1) infinite;
 }
 @keyframes blink { 50% { opacity: 0; } }
 .about .btn-group {
@@ -356,7 +350,7 @@ section {
     transition: var(--transition);
 }
 .about .btn-group .btn:hover {
-    background-color: var(--bg-primary);
+    background-color: var(--bg-secondary);
     color: var(--text-primary);
 }
 .about .socials {
@@ -440,6 +434,8 @@ section {
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
     background: var(--bg-secondary-blurred);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 /* Icône à gauche, sur toute la hauteur du contenu de la carte de service*/
 .service-card .icon {
