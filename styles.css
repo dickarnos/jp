@@ -21,7 +21,7 @@
     --gradient-accessible-reverse: linear-gradient(165deg, #7A4F01 0%, #BF953F 20%, #FCF6BA 38%, #B38728 52%, #FBF5B7 68%, #AA771C 82%, #8A6E2F 100%);
     --gradient-text: linear-gradient(to left, var(--accent-3), var(--text-primary));
 
-    --profil-img: url("./profil-black.png");
+    --profil-img: url("./assets/profil-black.png");
     }
 
 .blush {
@@ -40,7 +40,7 @@
     --gradient-accessible-reverse: linear-gradient(to left, var(--accent-3), var(--bg-secondary));
     --gradient-text: linear-gradient(to left, var(--accent-3), var(--text-primary));
 
-    --profil-img: url("./profil2.png");
+    --profil-img: url("./assets/profil-pink.png");
     }
     
 :root {
@@ -67,7 +67,7 @@
     --gradient-accessible-reverse: linear-gradient(to left, var(--accent-3), var(--bg-secondary));;
     --gradient-text: linear-gradient(to left, var(--accent-3), var(--text-primary));;
 
-    --profil-img: url("./profil.png");
+    --profil-img: url("./assets/profil-blue.png");
 
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-2: all 0.3s ease-in-out;
